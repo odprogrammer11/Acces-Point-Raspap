@@ -2,13 +2,19 @@
 Raspberry Pi Wi-Fi setup hotspot: creates an AP when not connected, lets users configure Wi-Fi from a phone, then disables the hotspot.
 
 1- Create the hotspot connection
+
 sudo nmcli con add type wifi ifname wlan0 con-name setup-hotspot autoconnect no ssid "Connection Name"
+
 sudo nmcli con modify hotspot 802-11-wireless.mode ap
+
 sudo nmcli con modify hotspot 802-11-wireless.band bg 802-11-wireless.channel 6
+
 sudo nmcli con modify hotspot wifi-sec.key-mgmt wpa-psk wifi-sec.psk "Password"
+
 sudo nmcli con modify hotspot ipv4.method shared ipv6.method ignore
 
 2- Add the script
+
 sudo nano /usr/local/sbin/wifi-setup-mode.sh
 
 #!/usr/bin/env bash
