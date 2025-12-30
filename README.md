@@ -10,6 +10,7 @@ sudo nmcli con modify hotspot ipv4.method shared ipv6.method ignore
 
 2- Add the script
 sudo nano /usr/local/sbin/wifi-setup-mode.sh
+
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -67,15 +68,3 @@ EXTRA:
 Get status:
 systemctl status wifi-setup-mode.timer --no-pager
 journalctl -u wifi-setup-mode.service -n 50 --no-pager
-
-Change IP:
-sudo nmcli con mod "setup-hotspot" ipv4.method manual
-sudo nmcli con mod "setup-hotspot" ipv4.addresses 10.3.141.1/24
-sudo nmcli con mod "setup-hotspot" ipv4.gateway 10.3.141.1
-sudo nmcli con mod "setup-hotspot" ipv4.dns "1.1.1.1 8.8.8.8"
-sudo nmcli con mod "setup-hotspot" ipv6.method ignore
---
-sudo nmcli con down "setup-hotspot" || true
-sudo nmcli con up "setup-hotspot"
-
-
