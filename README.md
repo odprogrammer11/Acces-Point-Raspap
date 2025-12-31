@@ -17,6 +17,7 @@ sudo nmcli con modify hotspot ipv4.method shared ipv6.method ignore
 
 sudo nano /usr/local/sbin/wifi-setup-mode.sh
 
+```
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -33,6 +34,7 @@ fi
 if [[ "${ACTIVE:-}" == "$HOTSPOT" ]]; then
   exit 0
 fi
+```
 
 nmcli con up "$HOTSPOT"
 
@@ -42,6 +44,7 @@ sudo chmod +x /usr/local/sbin/wifi-setup-mode.sh
 4- Create the systemd service
 sudo nano /etc/systemd/system/wifi-setup-mode.service
 
+```
 [Unit]
 Description=Enable setup hotspot when Wi-Fi is not connected
 After=NetworkManager.service
@@ -64,6 +67,7 @@ Unit=wifi-setup-mode.service
 
 [Install]
 WantedBy=timers.target
+```
 
 6-Enable ans start
 sudo systemctl daemon-reload
