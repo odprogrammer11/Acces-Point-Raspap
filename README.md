@@ -74,3 +74,15 @@ EXTRA:
 Get status:
 systemctl status wifi-setup-mode.timer --no-pager
 journalctl -u wifi-setup-mode.service -n 50 --no-pager
+
+Change to static IP:
+sudo nmcli con mod "setup-hotspot" ipv4.method manual
+
+sudo nmcli con mod "setup-hotspot" ipv4.addresses yourIP
+
+sudo nmcli con mod "setup-hotspot" ipv4.gateway YourGateway
+
+sudo nmcli con mod "setup-hotspot" ipv4.dns "1.1.1.1 8.8.8.8"
+
+sudo nmcli con mod "setup-hotspot" ipv6.method ignore
+
