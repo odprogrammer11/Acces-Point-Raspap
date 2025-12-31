@@ -34,9 +34,9 @@ fi
 if [[ "${ACTIVE:-}" == "$HOTSPOT" ]]; then
   exit 0
 fi
-```
 
 nmcli con up "$HOTSPOT"
+```
 
 3- Make it executable
 sudo chmod +x /usr/local/sbin/wifi-setup-mode.sh
