@@ -76,7 +76,7 @@ Unit=wifi-setup-mode.service
 WantedBy=timers.target
 ```
 
-6-Enable ans start
+6-Enable and start
 ```
 sudo systemctl daemon-reload
 ```
