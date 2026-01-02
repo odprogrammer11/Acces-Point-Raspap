@@ -60,10 +60,12 @@ Wants=NetworkManager.service
 [Service]
 Type=oneshot
 ExecStart=/usr/local/sbin/wifi-setup-mode.sh
-
+```
 5-Create the systemd timer
-
+```
 sudo nano /etc/systemd/system/wifi-setup-mode.timer
+```
+```
 [Unit]
 Description=Periodically ensure setup hotspot state
 
